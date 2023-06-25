@@ -11,7 +11,7 @@ chosen_word_list = list(chosen_word)
 print(chosen_word_list)
 
 #TODo-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-guess = input("Guess a letter: ")
+guess = input("Guess a letter: ").lower()
 
 #TODo-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 for char in chosen_word_list:
