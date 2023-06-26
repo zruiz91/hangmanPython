@@ -3,7 +3,65 @@ import random
 word_list = ["aardvark", "baboon", "camel"]
 chosen_word = random.choice(word_list)
 end_of_game = False
-user_life = 6
+lives = 6
+
+
+stages = ['''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ / \  |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+ /    |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|\  |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+ /|   |
+      |
+      |
+=========''', '''
+  +---+
+  |   |
+  O   |
+  |   |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+  O   |
+      |
+      |
+      |
+=========
+''', '''
+  +---+
+  |   |
+      |
+      |
+      |
+      |
+=========
+''']
 
 #Testing code
 print(f'Pssst, the solution is {chosen_word}.')
@@ -17,7 +75,7 @@ for letter in chosen_word:
     display.append("_")
 
 
-print(f"Life Meter: {user_life}")
+print(stages[lives])
 print(display)
 
 #While loop to keep the user guessing until completed
@@ -34,15 +92,19 @@ while not end_of_game:
 
     #Checks if guess was wrong and detreacts from their life score if so.
     if guess not in chosen_word:
-        user_life -= 1
+        lives -= 1
+
+
+
+    print(stages[lives])
+    print(display)
+
 
     # Checks if user still has life if not game over
-    if user_life == 0:
+    if lives == 0:
         end_of_game = True
         print("You lose, loser.")
 
-    print(f"Life Meter: {user_life}")
-    print(display)
     # checks if user has guessed all the blanks and if so wins
     if "_" not in display:
         end_of_game = True
